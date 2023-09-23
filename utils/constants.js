@@ -26,6 +26,46 @@ const chats = [
     {
         user: "Thank you for your help.",
         computer: "You're welcome! If you have any more questions in the future, feel free to reach out."
+    },
+    {
+        user: "I have a question about the warranty.",
+        computer: "Certainly, our products come with a standard one-year warranty. We also offer extended warranty options for purchase."
+    },
+    {
+        user: "What payment methods do you accept?",
+        computer: "We accept various payment methods, including credit/debit cards, PayPal, and bank transfers."
+    },
+    {
+        user: "When can I expect the delivery?",
+        computer: "Delivery times may vary based on your location. We'll provide an estimated delivery date during the order confirmation process."
+    },
+    {
+        user: "Is there a return policy in case I'm not satisfied?",
+        computer: "Yes, we have a return policy in place. You can review our return policy on our website for detailed information."
+    },
+    {
+        user: "Thank you for your assistance.",
+        computer: "You're welcome! If you have any more questions or need further assistance, feel free to ask."
+    },
+    {
+        user: "Goodbye for now.",
+        computer: "Goodbye! Have a great day!"
+    },
+    {
+        user: "Hello again, I have another question.",
+        computer: "Of course, I'm here to help. What's your question?"
+    },
+    {
+        user: "Can you provide the specifications for Model A?",
+        computer: "Certainly, here are the specifications for Model A..."
+    },
+    {
+        user: "I'm interested in Model C. Tell me more about it.",
+        computer: "Model C is our premium option, known for its cutting-edge features and performance..."
+    },
+    {
+        user: "Thank you for the information.",
+        computer: "You're welcome! If you have any more questions or need assistance with anything else, don't hesitate to ask."
     }
 ];
 
