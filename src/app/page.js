@@ -3,7 +3,9 @@ import Navbar from "../components/navbar"
 import { BsArrowRightShort } from "react-icons/bs"
 import Link from "next/link"
 
+
 export default function Home() {
+  
   return (
     <div className="bg-bgprimary px-5 py-4 min-h-screen">
       <Navbar />

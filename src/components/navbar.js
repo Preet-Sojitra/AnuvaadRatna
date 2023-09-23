@@ -1,5 +1,8 @@
+"use client"
 import { Poppins, Roboto } from "next/font/google"
 import Link from "next/link"
+import { useEffect, useState } from "react";
+import { supabase } from "../../supabase";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -12,6 +15,22 @@ const roboto = Roboto({
 })
 
 export default function navbar() {
+  const [isLoggedIn,setIsLoggedIn] = useState(false);
+
+  const res = async()=>{
+    const test = await supabase.auth.getUser()
+    if(test.data.user){
+      setIsLoggedIn(true)
+      console.log((test.data));
+    }
+    else{
+      setIsLoggedIn(false)
+    }
+  }
+
+  useEffect(()=>{
+    res()
+  },[])
   return (
     <>
       <div className={`flex justify-between px-10 `}>
@@ -23,9 +42,9 @@ export default function navbar() {
           <h2> About </h2>
           <h2> Contact </h2>
 
-          <Link href={"/auth"}>
+          <Link href={isLoggedIn ? "/user": "/auth"}>
             <button className="border-action border-2 px-4 text-secondary rounded-md hover:bg-action duration-300">
-              Login
+              {isLoggedIn ? "Dashboard": "Log In"}
             </button>
           </Link>
         </div>

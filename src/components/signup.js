@@ -58,7 +58,18 @@ const Signup = () => {
       };
 
       const handleGoogleAuth = (e)=>{
-        
+        const res = async () =>{
+            const test = await supabase.auth.signInWithOAuth({
+                provider:"google",
+                options: {
+                    queryParams: {
+                      access_type: 'offline',
+                      prompt: 'consent',
+                    },
+                  },
+            })
+        }
+        res();
       }
   return (
     <div className="mt-[200px] flex justify-center items-center flex-col ">
@@ -127,9 +138,9 @@ const Signup = () => {
             <div className='border-[1px] border-solid border-[black] mt-[10px] w-[350px] '/>
         </div>
 
-        <button 
-            type="submit"
-            className="bg-black flex text-white px-8 py-2 font-bold rounded-md hover:bg-[#3e54c6] w-[300px] mt-5 justify-center items-center gap-x-3"
+        <button
+            className="bg-white flex text-black border-black border-[2px] hover:border-[#3e54c6] px-8 py-1 font-bold rounded-md hover:bg-[#3e54c6] w-[300px] mt-5 justify-center items-center gap-x-3"
+            onClick={handleGoogleAuth}
         >
            <FcGoogle/><p>
            Google

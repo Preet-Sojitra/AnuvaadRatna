@@ -1,6 +1,38 @@
 import { IoSend } from "react-icons/io5"
+import { chats } from "../../utils/constants";
 
 export default function Chat() {
+  const chats = [
+    {
+        user:"This is test",
+        computer:"Haaaa"
+    },
+    {
+        user:"This is test",
+        computer:"Haaaa"
+    },
+    {
+        user:"This is test",
+        computer:"Haaaa"
+    },
+    {
+        user:"This is test",
+        computer:"Haaaa"
+    },
+    {
+        user:"This is test",
+        computer:"Haaaa"
+    },
+    {
+        user:"This is test",
+        computer:"Haaaa"
+    },
+    {
+        user:"This is test",
+        computer:"Haaaa"
+    },
+]
+  console.log(chats);
   return (
     <>
       <main className="fixed bottom-5 left-1/2 -translate-x-1/2 z-10">
