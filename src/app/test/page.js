@@ -3,6 +3,8 @@
 import React, { useState } from "react"
 import axios from "axios"
 
+const API_URL = "http://127.0.0.1:5000"
+
 function FileUpload() {
   const [selectedFile, setSelectedFile] = useState(null)
   console.log(selectedFile)
@@ -17,7 +19,7 @@ function FileUpload() {
       formData.append("file", selectedFile)
 
       axios
-        .post("http://127.0.0.1:5000/upload", formData, {
+        .post(`${API_URL}/predict-pdf`, formData, {
           headers: {
             "Content-Type": "multipart/form-data", // Important for sending files
           },
