@@ -3,8 +3,11 @@
 
 import React, { useState } from 'react'
 import { supabase } from '../../supabase';
+import {FcGoogle} from "react-icons/fc"
+import { useRouter } from 'next/navigation';
 
 const Signup = () => {
+    const router = useRouter();
     const [user_detail, setUser_detail] = useState({
         email: "",
         password: "",
@@ -37,8 +40,8 @@ const Signup = () => {
                   password: user_detail.password,
                 })
                 console.log(data);
+                router.push("/user")
             }
-
             res()
         }
         else{
@@ -53,6 +56,10 @@ const Signup = () => {
             res()
         }
       };
+
+      const handleGoogleAuth = (e)=>{
+        
+      }
   return (
     <div className="mt-[200px] flex justify-center items-center flex-col ">
       
@@ -122,9 +129,11 @@ const Signup = () => {
 
         <button 
             type="submit"
-            className="bg-black text-white px-8 py-2 font-bold mt-[30px] rounded-md hover:bg-[#3e54c6] w-[300px] mt-5"
+            className="bg-black flex text-white px-8 py-2 font-bold rounded-md hover:bg-[#3e54c6] w-[300px] mt-5 justify-center items-center gap-x-3"
         >
-            Google
+           <FcGoogle/><p>
+           Google
+           </p>
         </button>
       </form>
     </div>
