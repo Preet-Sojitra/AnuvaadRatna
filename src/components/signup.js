@@ -72,11 +72,11 @@ const Signup = () => {
         res();
       }
   return (
-    <div className="mt-[200px] flex justify-center items-center flex-col ">
+    <div className="mt-[150px] flex justify-center items-center flex-col ">
       
       <form
         onSubmit={handelSubmit}
-        className="flex flex-col justify-center items-center gap-y-4 w-[450px] border-2 border-black border-solid py-[100px] shadow-xl rounded-md bg-slate-50 bg-opacity-50"
+        className="flex flex-col justify-center items-center gap-y-4 w-[450px] border-2 border-[black] border-solid py-[100px] shadow-blue-400 rounded-md shadow-xl bg-slate-50 bg-opacity-50"
       >
         <h1
         className='text-[20px] font-bold mb-10'
@@ -139,7 +139,7 @@ const Signup = () => {
         </div>
 
         <button
-            className="bg-white flex text-black border-black border-[2px] hover:border-[#3e54c6] px-8 py-1 font-bold rounded-md hover:bg-[#3e54c6] w-[300px] mt-5 justify-center items-center gap-x-3"
+            className="bg-white flex text-black border-black border-[2px] hover:border-[#3e54c6] px-8 py-1 font-bold rounded-md hover:bg-[#3e54c6] w-[300px] mt-5 justify-center items-center gap-x-3 hover:text-white"
             onClick={handleGoogleAuth}
         >
            <FcGoogle/><p>

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from '../../../supabase';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const page = () => {
     console.log("In user page");
@@ -9,13 +10,15 @@ const page = () => {
     const router = useRouter()
 
     const res = async()=>{
-        const test =  await supabase.auth.getUser()
-        const test2= await supabase.auth.getSession()
-        console.log(test.data);
-        // console.log(test2);
-        if(test.data){
-          setIsLoggedIn(true)
-        }
+      const test = await supabase.auth.getUser()
+      if(test.data.user){
+        setIsLoggedIn(true)
+        console.log((test.data));
+      }
+      else{
+        setIsLoggedIn(false)
+        router.push("/auth")
+      }
     }
 
     const ForLogOut = async() =>{
@@ -24,18 +27,67 @@ const page = () => {
         router.push("/")
     }
 
+    const handleConversation = ()=>{
+      router.push("/translate")
+    }
+
     useEffect(()=>{
       res()
     },[isLoggedIn])
   return (
-    <div>
-      Hi user
-      <button 
-        className='border-[1px] border-black px-5 py-2'
-        onClick={ForLogOut}>
-          Log Out
-      </button>
+    <>
+    {isLoggedIn
+    ?
+    <div className='flex flex-col'>
+      <div className={`flex justify-between px-10 mt-[15px]`}>
+          <h1 className={`text-action font-bold text-3xl`}>
+            Anuvaad रत्न
+          </h1>
+
+          <div className={` flex gap-10 items-center text-lg`}>
+            <h2> About </h2>
+            <h2> Contact </h2>
+
+            <button className="border-action border-2 px-4 text-secondary rounded-md hover:bg-action duration-300 hover:text-white"
+            onClick={ForLogOut}>
+              {isLoggedIn ? "Log Out": "Log In"}
+            </button>
+          </div>
+       </div>
+
+       <div className='flex flex-col items-center justify-center mt-[150px]'>
+        <div className='font-bold text-[25px] text-action'>
+          Start the conversation instantly
+        </div>
+        <div>
+          <select 
+          name='language'
+          className='border-[1.5px] border-black px-2 py-1 rounded-md w-[250px] font-medium mt-[40px]'
+          >
+            <option value={"gujarati"}>Gujarati</option>
+            <option value={"Bengali"}>Bengali</option>
+            <option value={"Hindi"} selected>Hindi</option>
+            <option value={"Malyalam"}>Malyalam</option>
+          </select>
+        </div>
+
+        <div>
+          <button 
+            className="bg-[#3e54c6] text-white px-8 py-1 font-bold mt-[30px] rounded-md hover:bg-[white] hover:text-black hover:border-[1px] border-black w-[250px]"
+            onClick={handleConversation}
+          >
+            Start
+        </button>
+        </div>
+        <div>
+
+        </div>
+       </div>
     </div>
+    :
+    null
+    }
+    </>
   )
 }
 

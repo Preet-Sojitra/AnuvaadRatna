@@ -43,7 +43,7 @@ export default function navbar() {
           <h2> Contact </h2>
 
           <Link href={isLoggedIn ? "/user": "/auth"}>
-            <button className="border-action border-2 px-4 text-secondary rounded-md hover:bg-action duration-300">
+            <button className="border-action border-2 px-4 text-secondary rounded-md hover:bg-action duration-300 hover:text-white">
               {isLoggedIn ? "Dashboard": "Log In"}
             </button>
           </Link>
