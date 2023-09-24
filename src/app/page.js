@@ -28,7 +28,7 @@ export default function Home() {
             </p>
 
             <div className="mt-5">
-              <Link href="/translate">
+              <Link href="/user">
                 <button className="bg-action px-5 py-2 gap-1 group rounded-md font-medium flex items-center text-xl text-white">
                   Get Started
                   <div className="group-hover:translate-x-1 group-hover:duration-300 group-hover:ease-in-out">
