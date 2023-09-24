@@ -69,7 +69,8 @@ const Signup = () => {
                   },
             })
         }
-        res();
+        res()
+        router.push("/user")
       }
   return (
     <div className="mt-[150px] flex justify-center items-center flex-col ">
