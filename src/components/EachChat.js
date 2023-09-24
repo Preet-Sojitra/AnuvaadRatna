@@ -14,6 +14,7 @@ const EachChat = (props) => {
           </div>
         ) : null}
       </div>
+
       <div className="flex justify-start">
         {props?.computer !== null ? (
           <div className="flex justify-start text-justify bg-white py-2 px-4 text-black items-center rounded-md mx-2 mt-2 max-w-[400px]">
@@ -33,6 +34,10 @@ const EachChat = (props) => {
           </div>
         ) : null}
       </div>
+
+      {props.hasOwnProperty("audio") && props.audio !== null && (
+        <audio id="audio" src={props?.audio} controls></audio>
+      )}
     </div>
   )
 }
