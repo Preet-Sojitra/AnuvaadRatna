@@ -7,16 +7,27 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { supabase } from "../../../supabase"
 import axios from "axios"
+// import gTTS from "gtts"
 
 const API_URL = "http://127.0.0.1:5000"
 
 export default function Page() {
+  // const gtts = new gTTS("Hello, How are you", "en")
+  // gtts.save("./tmp/hello.mp3", function (err, result) {
+  //   if (err) {
+  //     throw new Error(err)
+  //   }
+  //   console.log("Success! Open file ./tmp/hello.mp3 to hear result.")
+  // })
+
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const router = useRouter()
 
   const [chats, setChats] = useState([])
 
   const [input, setInput] = useState("")
+
+  const [audio, setAudio] = useState("")
 
   const handleInput = (e) => {
     setInput(e.target.value)
@@ -26,6 +37,7 @@ export default function Page() {
     const userMessage = {
       user: input,
       computer: "Loading...",
+      audio: null,
     }
 
     setChats([...chats, userMessage])
@@ -40,7 +52,17 @@ export default function Page() {
       })
       console.log(res.data)
 
+      // Since we have translated text, we will not use tts
+
+      const tts_res = await axios.post(`${API_URL}/audio`, {
+        input: res.data.Translation,
+        lang: "hi",
+      })
+      console.log(tts_res.data)
+      setAudio(tts_res.data.url)
+
       userMessage.computer = res.data.Translation
+      userMessage.audio = tts_res.data.url
       // console.log("User message")
       // console.log(userMessage)
 
@@ -101,12 +123,12 @@ export default function Page() {
                       key={chat}
                       user={chat.user}
                       computer={chat.computer}
+                      audio={chat.audio}
                     />
                   </>
                 )
               })}
             </div>
-
             {/* This below code is of input and send */}
             <div className="flex w-full bg-bgprimary">
               <main className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50">

@@ -17,6 +17,7 @@
     "doo-it": "^1.0.0",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
+    "gtts": "^0.2.1",
     "next": "13.5.2",
     "pdf.js-extract": "^0.2.1",
     "postcss": "8.4.30",
