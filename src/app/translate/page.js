@@ -33,7 +33,8 @@ export default function Page() {
     setInput(e.target.value)
   }
 
-  const handleSend = async () => {
+  const handleSend = async (e) => {
+    e.preventDefault()
     const userMessage = {
       user: input,
       computer: "Loading...",
@@ -58,8 +59,7 @@ export default function Page() {
         input: res.data.Translation,
         lang: "hi",
       })
-      console.log(tts_res.data)
-      setAudio(tts_res.data.url)
+      // console.log(tts_res.data)
 
       userMessage.computer = res.data.Translation
       userMessage.audio = tts_res.data.url
@@ -133,21 +133,24 @@ export default function Page() {
             <div className="flex w-full bg-bgprimary">
               <main className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50">
                 <div className="flex items-center gap-3">
-                  <input
-                    type="text"
-                    className="border-2 border-action bg-transparent rounded-md w-[40vw] text-xl px-2 py-1"
-                    placeholder="Enter text to translate"
-                    value={input}
-                    onChange={handleInput}
-                  />
-                  <div>
-                    <div
-                      className="bg-secondary px-2 py-2 rounded cursor-pointer"
-                      onClick={handleSend}
-                    >
-                      <IoSend className="text-white text-lg" />
+                  <form onSubmit={handleSend} className="flex flex-row gap-3">
+                    <input
+                      type="text"
+                      className="border-2 border-action bg-transparent rounded-md w-[40vw] text-xl px-2 py-1"
+                      placeholder="Enter text to translate"
+                      value={input}
+                      onChange={handleInput}
+                    />
+                    <div>
+                      <button
+                        className="bg-secondary px-2 py-2 rounded cursor-pointer"
+                        onClick={handleSend}
+                        type="submit"
+                      >
+                        <IoSend className="text-white text-lg" />
+                      </button>
                     </div>
-                  </div>
+                  </form>
                 </div>
               </main>
             </div>
