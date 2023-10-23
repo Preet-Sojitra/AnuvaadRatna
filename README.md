@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Anuvaad Ratna
 
-## Getting Started
+> This project was made during the internal hackathon conducted at our University for the Smart India Hackathon 2023.
 
-First, run the development server:
+## Description:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Anuvaad Ratna is a web application for translating resources from one language to another. Currently, it is capable of translating English to Hindi text, translating English PDF to Hindi PDF, and generating text-to-speech (TTS) audio of the translated text.
+
+## Tech Stack:
+
+**Frontend:** Next.js
+
+**Backend:** Flask
+
+**Machine Learning:** Tensorflow, [Helsinki model from Hugging Face](https://huggingface.co/Helsinki-NLP/opus-mt-en-hi?text=My+name+is+Sarah+and+I+live+in+London)
+
+**Backend Repo:** [Link to backend repo](https://github.com/Preet-Sojitra/sih_flask)
+
+## Features:
+
+- English to Hindi text translation
+
+- English to Hindi PDF translation
+
+- Text-to-speech audio generation of translated text
+
+## Team Members:
+
+- [Preet Sojitra](https://github.com/Preet-Sojitra)
+- [Yug Bhanushali](https://github.com/YugBhanushali)
+- [Dhyan Shah](https://github.com/DhyanShah22)
+- [Kanishk Munot](https://github.com/kanishkmunot)
+- Pratham Shah
+- Diya Mirani
+
+## Usage:
+
+To use Anuvaad Ratna, you need to run it on your local machine only as of now. To do so, follow these steps:
+
+> You need to clone both the frontend and backend repositories to your local machine separately and start the servers for both of them separately.
+
+1. Clone the repository using following command:
+
+```
+git clone https://github.com/Preet-Sojitra/AnuvaadRatna
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the cloned repository and install the dependencies using the following command:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Start the server using the following command:
 
-## Learn More
+```
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Now head over to the [backend repository](https://github.com/Preet-Sojitra/sih_flask) and follow the instructions given there to start the backend server.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Future Plans:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+We plan to add support for more languages to Anuvaad Ratna in the future. We also plan to improve the accuracy of the translations and to add new features, such as the ability to translate images.
