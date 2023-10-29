@@ -6,6 +6,10 @@
 
 Anuvaad Ratna is a web application for translating resources from one language to another. Currently, it is capable of translating English to Hindi text, translating English PDF to Hindi PDF, and generating text-to-speech (TTS) audio of the translated text.
 
+## Live Demo:
+
+You can view a live demo of the project on [youtube](https://youtu.be/d3sqFWYGBTk?si=LiZHsLfnqdwJ4NRj).
+
 ## Tech Stack:
 
 **Frontend:** Next.js
